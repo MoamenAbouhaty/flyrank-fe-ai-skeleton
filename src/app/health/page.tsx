@@ -1,35 +1,61 @@
-async function getHealthStatus() {
-  const response = await fetch("http://localhost:3000/api/health", {
-    cache: "no-store",
-  });
+"use client";
 
-  if (!response.ok) {
-    throw new Error("Health check failed");
-  }
+import { useEffect, useState } from "react";
 
-  return response.json();
-}
+type HealthData = {
+  status: string;
+  service: string;
+  timestamp: string;
+};
 
-export default async function HealthPage() {
-  const health = await getHealthStatus();
+export default function HealthPage() {
+  const [health, setHealth] = useState<HealthData | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchHealth() {
+      try {
+        const response = await fetch("/api/health", {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error("Health check failed");
+        }
+
+        const data: HealthData = await response.json();
+        setHealth(data);
+      } catch {
+        setError("Unable to fetch health status");
+      }
+    }
+
+    fetchHealth();
+  }, []);
 
   return (
     <section>
       <h1>Health Check</h1>
 
-      <div>
-        <p>
-          <strong>Status:</strong> {health.status}
-        </p>
+      {error && <p>{error}</p>}
 
-        <p>
-          <strong>Service:</strong> {health.service}
-        </p>
+      {health && (
+        <div>
+          <p>
+            <strong>Status:</strong> {health.status}
+          </p>
 
-        <p>
-          <strong>Timestamp:</strong> {health.timestamp}
-        </p>
-      </div>
+          <p>
+            <strong>Service:</strong> {health.service}
+          </p>
+
+          <p>
+            <strong>Timestamp:</strong> {health.timestamp}
+          </p>
+        </div>
+      )}
+
+      {!health && !error && <p>Checking service health...</p>}
     </section>
   );
 }
