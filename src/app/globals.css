@@ -3,24 +3,97 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #0d3b3e;
+  --primary-hover: #297373;
+  --surface: #f5f7f7;
+  --border: #d9e1e1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+nav {
+  width: 100%;
+  max-width: 1280px;
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+nav > a {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav > div a {
+  color: var(--foreground);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--primary-hover);
+}
+
+main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+@media (max-width: 640px) {
+  nav {
+    min-height: auto;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav > div {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  main {
+    padding: 32px 16px;
+  }
 }
