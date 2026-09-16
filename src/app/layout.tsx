@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ThemeToggle from "./components/ThemeToggle";
 import Link from "next/link";
 import "./globals.css";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
               <Link href="/history">History</Link>
               <Link href="/settings">Settings</Link>
               <Link href="/health">Health</Link>
+              <ThemeToggle />
             </div>
           </nav>
         </header>

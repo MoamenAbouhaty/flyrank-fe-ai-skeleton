@@ -97,3 +97,74 @@ h1 {
     padding: 32px 16px;
   }
 }
+html.dark {
+  --background: #071f21;
+  --foreground: #e8f5f3;
+  --surface: #0d2b2d;
+  --border: #244648;
+}
+
+html.dark body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html.dark header {
+  background: #071f21;
+  border-color: var(--border);
+}
+
+html.dark nav > a {
+  color: #9fd0ca;
+}
+
+html.dark nav > div a {
+  color: #d7e8e6;
+}
+
+html.dark main {
+  color: #e8f5f3;
+}
+
+/* Cards */
+html.dark .bg-white {
+  background-color: #0d2b2d !important;
+}
+
+html.dark .bg-\[\#f5f7f7\] {
+  background-color: #102f31 !important;
+}
+
+html.dark .bg-\[\#f8fafa\] {
+  background-color: #102f31 !important;
+}
+
+/* Borders */
+html.dark .border-\[\#d9e1e1\] {
+  border-color: #244648 !important;
+}
+
+/* Main text */
+html.dark .text-\[\#0d3b3e\] {
+  color: #b9d8d5 !important;
+}
+
+html.dark .text-gray-500 {
+  color: #a8bfbd !important;
+}
+
+html.dark .text-gray-400 {
+  color: #8da8a5 !important;
+}
+
+/* Inputs */
+html.dark input,
+html.dark select {
+  color: #e8f5f3;
+  background-color: #102f31;
+}
+
+/* Analyze editor stays dark */
+html.dark textarea {
+  color: #b9d8d5;
+}
