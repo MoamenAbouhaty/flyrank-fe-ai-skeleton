@@ -9,7 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/groq": "^4.0.44",
+    "@ai-sdk/react": "^4.0.108",
     "@base-ui/react": "^1.8.0",
+    "ai": "^7.0.105",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.3.0",
     "lucide-react": "^1.46.0",

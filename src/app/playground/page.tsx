@@ -4,6 +4,7 @@ import { useState } from "react";
 import Modal from "../../../playground/Modal";
 import Tabs from "../../../playground/Tabs";
 import Disclosure from "../../../playground/Disclosure";
+import Chat from "../../components/chat";
 
 export default function PlaygroundPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ export default function PlaygroundPage() {
 
   return (
     <main className="min-h-screen bg-[#f5f7f7] p-8">
-      <div className="mx-auto max-w-3xl space-y-10">
+      <div className="mx-auto max-w-4xl space-y-10">
         <section>
           <h1 className="text-3xl font-bold text-[#0d3b3e]">
             Accessibility Playground
@@ -97,6 +98,20 @@ export default function PlaygroundPage() {
               using aria-expanded and aria-controls.
             </p>
           </Disclosure>
+        </section>
+
+        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 className="mb-5 text-xl font-bold text-[#0d3b3e]">
+            Streaming AI Chat
+          </h2>
+
+          <p className="mb-5 text-gray-500">
+            AI-powered streaming conversation interface.
+          </p>
+
+          <div className="overflow-hidden rounded-2xl border border-gray-200">
+            <Chat />
+          </div>
         </section>
       </div>
     </main>
